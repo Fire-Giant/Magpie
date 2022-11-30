@@ -1,10 +1,10 @@
 /**
  * A program to carry on conversations with a human user.
- * This is the initial version that:  
+ * This is the initial version that:
  * <ul><li>
  *       Uses indexOf to find strings
  * </li><li>
- * 		    Handles responding to simple words and phrases 
+ * 		    Handles responding to simple words and phrases
  * </li></ul>
  * This version uses a nested if to handle default responses.
  * @author Laurie White
@@ -30,8 +30,12 @@ public class Magpie2
 	 */
 	public String getResponse(String statement) {
 		String response = "";
+		String statement1 = statement.trim();
 		if (statement.indexOf("no") >= 0) {
 			response = "Why so negative?";
+		}
+		else if (statement1.length() == 0){
+			System.out.println("Please say something!");
 		}
 		else if (statement.indexOf("mother") >= 0
 				|| statement.indexOf("father") >= 0
@@ -76,7 +80,7 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 7;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -96,6 +100,18 @@ public class Magpie2
 		else if (whichResponse == 3)
 		{
 			response = "You don't say.";
+		}
+		else if (whichResponse == 4)
+		{
+			response = "We should talk more often";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "What's your number?";
+		}
+		else if (whichResponse == 6)
+		{
+			response = "Who? What? When? Where? Why?";
 		}
 
 		return response;
